@@ -1,0 +1,56 @@
+div.item, div.column_description{
+    font-family: 'Georgia', serif;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+
+header .header{
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-color: #eeeeee;
+}
+
+header .site_info a{
+    color: #3D3D3D;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+header a, header a:hover{
+    color: #B2B2B2;
+    text-decoration: inherit;
+}
+
+header .user{
+    color: #656565;
+}
+
+.header .user_info{
+    justify-self: end;
+    margin: auto 0 auto auto;
+}
+
+.site_info{
+    display: grid;
+    justify-self: start;
+    margin: auto auto auto 0;
+    column-gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+#user_name span{
+    color: #9F9F9F;
+}

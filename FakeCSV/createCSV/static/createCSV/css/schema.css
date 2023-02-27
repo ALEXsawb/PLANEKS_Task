@@ -1,0 +1,29 @@
+table.schema_structure {
+    width: 60%;
+}
+
+td div.status {
+    border-radius: 5px;
+    background-color: lightslategrey;
+    width: fit-content;
+    padding: 5px 10px;
+}
+
+td div.status.ready{
+    background-color: limegreen;
+}
+
+.create_new_file{
+    width: 60%;
+}
+
+.row_number{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-self: end;
+}

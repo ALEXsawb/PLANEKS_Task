@@ -1,0 +1,47 @@
+{% extends 'createCSV/base.html' %}
+{% load static %}
+
+
+{% block content %}
+    {% include 'createCSV/header.html' %}
+    <div class="create_schema">
+        <div class="create_new_schemas">
+            <h3>New schema</h3>
+            <div class="alert" role="alert" id="info"></div>
+            <button type="submit" class="btn btn-success" form="columns">Submit</button>
+        </div>
+        <div class="schema_data">
+            <form name="schema_info" id="schema_info">
+                {% for field in form %}
+                    <div class="schema_field">
+                        <label>{{field.label}}</label>
+                        {{field}}
+                    </div>
+                {% endfor %}
+            </form>
+        </div>
+        <div class="columns">
+            <h3>Schema columns</h3>
+            <form name="columns" id="columns">
+                {% csrf_token %}
+            </form>
+
+            <div class="empty_column">
+                <form class="new_column" id="add_column">
+                    <fieldset>
+                        {% for field in empty_column %}
+                          <div class="empty_column_field">
+                              <label>{{field.label}}</label>
+                              {{field}}
+                          </div>
+                        {% endfor %}
+                        <div class="additional_fields"></div>
+                    </fieldset>
+                    <button type="submit" class="btn btn-success">Add Column</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'createCSV/js/getCookie.js' %}"></script>
+    <script src="{% static 'createCSV/js/create_schema.js' %}"></script>
+{% endblock %}

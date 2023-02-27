@@ -1,0 +1,48 @@
+form{
+    display: grid;
+    width: 300px;
+    justify-self: center;
+    row-gap: 15px;
+    margin: 0 auto auto auto;
+    column-gap: 20px;
+}
+
+div.form_wrapper{
+    display: grid;
+    width: 500px;
+    height: 400px;
+    margin: auto;
+    border: 1px lightgray solid;
+    grid-template-rows: 1fr auto 1fr;
+}
+
+input {
+    width: 100%;
+}
+
+div.form{
+    display: grid;
+    height: 100%;
+}
+
+div#login{
+    width: content-box;
+    margin: auto auto auto auto;
+}
+
+form button{
+    display: grid;
+    justify-self: end;
+    width: 100px;
+}
+
+span.error{
+    color: darkred;
+    width: 350px;
+    margin: 0 auto;
+    height: content-box;
+}
+
+form button.btn-success{
+    background-color: dodgerblue;
+}

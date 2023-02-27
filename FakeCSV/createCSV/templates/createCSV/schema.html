@@ -1,0 +1,59 @@
+{% extends 'createCSV/base.html' %}
+{% load static %}
+
+{% block content %}
+  {% include 'createCSV/header.html' %}
+    <div class="schema">
+      <div>
+        <h3>Sample Schemas</h3>
+          <table class="table schema_structure">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Column name</th>
+                <th scope="col">Column type</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for column in schema_columns %}
+                <tr>
+                  <th scope="row">{{column.serial_number}}</th>
+                  <td>{{column.name}}</td>
+                  <td>{{column.type}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+  <div class="create_new_file">
+    <div class="row_number">
+      <h3>Data sets</h3>
+      <form name="row_number" id="row_number" method="POST">
+        <input type="number" name="row_number" min="1">
+        <button type="submit" class="btn btn-success">Generate data</button>
+      </form>
+    </div>
+    <table class="table">
+      <thead>
+      <tr>
+        <th scope="col">Created</th>
+        <th scope="col">Status</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
+      <tbody id="created_files">
+        {% for one_of_created_by_schema in created_by_schema %}
+          <tr>
+            <th scope="row">{{one_of_created_by_schema.date_create|date:"Y-d-m"}}</th>
+            <td><div class="status ready">Ready</div></td>
+            <td><a href="{{ one_of_created_by_schema.get_absolute_url }}">Download</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+  </div>
+<script src="{% static 'createCSV/js/getCookie.js' %}"></script>
+<script src="{% static 'createCSV/js/schema.js' %}"></script>
+{% endblock %}

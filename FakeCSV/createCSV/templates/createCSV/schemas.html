@@ -1,0 +1,32 @@
+{% extends 'createCSV/base.html' %}
+
+
+{% block content %}
+  {% include 'createCSV/header.html' %}
+    <div class="schemas">
+      <div class="create_new_schemas">
+        <h3>Data Schemas</h3>
+        <a type="submit" href="{% url 'create_schema' %}" class="btn btn-success">New schema</a>
+      </div>
+        <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Modified</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for schema in schemas %}
+      <tr>
+        <th scope="row">{{schema.serial_number}}</th>
+        <td><a href={{schema.get_absolute_url}}>{{schema.title}}</a></td>
+        <td>{{schema.date_update}}</td>
+        <td><a href="/"> Edit scheme </a> | <a href="/">Delete</a></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+    </div>
+{% endblock %}

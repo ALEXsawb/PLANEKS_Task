@@ -1,0 +1,15 @@
+div.schemas{
+    margin: 0 30% 0 5%;
+
+}
+
+.create_new_schemas{
+    margin: 20px 0 15px 0;
+    display: grid;
+    grid-template-columns: 1fr 150px;
+}
+
+div.create_new_schemas btn-success{
+    display: grid;
+    justify-self: end;
+}

@@ -1,0 +1,30 @@
+{% extends 'createCSV/base.html' %}
+
+{% block content %}
+
+<div class="form">
+  <div class="form_wrapper">
+    <div id="login">
+      <h1>Login</h1>
+    </div>
+    <form method="post" >
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="input">
+          {% for error in field.errors %}
+            <span class="error">{{error}}</span>
+          {% endfor %}
+          <input name="{{field.name}}" placeholder="{{field.name}}">
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
+    <div class="form_errors">
+      {% for error in form.non_field_errors %}
+        <span class="error">{{error}}</span>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
